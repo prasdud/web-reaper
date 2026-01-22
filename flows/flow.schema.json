@@ -1,0 +1,431 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Web Reaper Flow",
+  "description": "A test flow definition for web-reaper",
+  "type": "object",
+  "required": ["name", "baseUrl", "steps"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the flow"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of what this flow tests"
+    },
+    "baseUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Base URL for the application"
+    },
+    "requiresAuth": {
+      "type": "boolean",
+      "description": "Whether this flow requires authentication"
+    },
+    "authFile": {
+      "type": "string",
+      "description": "Path to authentication state file to load"
+    },
+    "variables": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          { "type": "string" },
+          { "type": "number" },
+          { "type": "boolean" }
+        ]
+      },
+      "description": "Variables for interpolation using {{variable}} syntax"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tags for filtering flows"
+    },
+    "timeout": {
+      "type": "number",
+      "description": "Default timeout for actions in milliseconds"
+    },
+    "skip": {
+      "type": "boolean",
+      "description": "Skip this flow when running tests"
+    },
+    "only": {
+      "type": "boolean",
+      "description": "Only run this flow (for debugging)"
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/action" },
+      "description": "Steps to execute"
+    },
+    "assertions": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/assertion" },
+      "description": "Assertions to run after steps complete"
+    },
+    "onSuccess": {
+      "type": "object",
+      "properties": {
+        "saveAuth": {
+          "type": "boolean",
+          "description": "Save authentication state after flow completes"
+        },
+        "authFile": {
+          "type": "string",
+          "description": "Path to save auth state"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "locator": {
+      "type": "object",
+      "required": ["strategies"],
+      "properties": {
+        "strategies": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["type", "value"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["testId", "role", "text", "css", "xpath", "component", "label", "placeholder"]
+              },
+              "value": { "type": "string" },
+              "name": { "type": "string", "description": "For role-based locators" },
+              "file": { "type": "string", "description": "React component file path" },
+              "line": { "type": "number", "description": "Line number in source file" }
+            }
+          }
+        },
+        "description": { "type": "string" }
+      }
+    },
+    "action": {
+      "type": "object",
+      "required": ["id", "action"],
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "timeout": { "type": "number" },
+        "optional": { "type": "boolean" }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "action": { "const": "navigate" },
+            "url": { "type": "string" }
+          },
+          "required": ["action", "url"]
+        },
+        {
+          "properties": {
+            "action": { "const": "click" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "modifiers": {
+              "type": "array",
+              "items": { "enum": ["Alt", "Control", "Meta", "Shift"] }
+            },
+            "button": { "enum": ["left", "right", "middle"] },
+            "clickCount": { "type": "number" }
+          },
+          "required": ["action", "locator"]
+        },
+        {
+          "properties": {
+            "action": { "const": "fill" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "value": { "type": "string" }
+          },
+          "required": ["action", "locator", "value"]
+        },
+        {
+          "properties": {
+            "action": { "const": "clear" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["action", "locator"]
+        },
+        {
+          "properties": {
+            "action": { "const": "select" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "value": { "oneOf": [{ "type": "string" }, { "type": "number" }] },
+            "by": { "enum": ["value", "label", "index"] }
+          },
+          "required": ["action", "locator", "value"]
+        },
+        {
+          "properties": {
+            "action": { "const": "check" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["action", "locator"]
+        },
+        {
+          "properties": {
+            "action": { "const": "uncheck" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["action", "locator"]
+        },
+        {
+          "properties": {
+            "action": { "const": "upload" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "files": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["action", "locator", "files"]
+        },
+        {
+          "properties": {
+            "action": { "const": "hover" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["action", "locator"]
+        },
+        {
+          "properties": {
+            "action": { "const": "press" },
+            "key": { "type": "string" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["action", "key"]
+        },
+        {
+          "properties": {
+            "action": { "const": "type" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "text": { "type": "string" },
+            "delay": { "type": "number" }
+          },
+          "required": ["action", "locator", "text"]
+        },
+        {
+          "properties": {
+            "action": { "const": "waitForSelector" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "state": { "enum": ["visible", "hidden", "attached", "detached"] }
+          },
+          "required": ["action", "locator"]
+        },
+        {
+          "properties": {
+            "action": { "const": "waitForNavigation" },
+            "url": { "type": "string" },
+            "waitUntil": { "enum": ["load", "domcontentloaded", "networkidle"] }
+          },
+          "required": ["action"]
+        },
+        {
+          "properties": {
+            "action": { "const": "waitForNetwork" },
+            "urlPattern": { "type": "string" },
+            "type": { "enum": ["request", "response"] }
+          },
+          "required": ["action", "urlPattern"]
+        },
+        {
+          "properties": {
+            "action": { "const": "waitForTimeout" },
+            "duration": { "type": "number" }
+          },
+          "required": ["action", "duration"]
+        },
+        {
+          "properties": {
+            "action": { "const": "screenshot" },
+            "name": { "type": "string" },
+            "fullPage": { "type": "boolean" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["action", "name"]
+        },
+        {
+          "properties": {
+            "action": { "const": "evaluate" },
+            "script": { "type": "string" },
+            "args": { "type": "array" }
+          },
+          "required": ["action", "script"]
+        },
+        {
+          "properties": {
+            "action": { "const": "scroll" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "x": { "type": "number" },
+            "y": { "type": "number" }
+          },
+          "required": ["action"]
+        },
+        {
+          "properties": {
+            "action": { "const": "focus" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["action", "locator"]
+        },
+        {
+          "properties": {
+            "action": { "const": "blur" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["action", "locator"]
+        }
+      ]
+    },
+    "assertion": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string" },
+        "description": { "type": "string" },
+        "timeout": { "type": "number" },
+        "soft": { "type": "boolean", "description": "Continue on failure" }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "type": { "const": "visible" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["type", "locator"]
+        },
+        {
+          "properties": {
+            "type": { "const": "hidden" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["type", "locator"]
+        },
+        {
+          "properties": {
+            "type": { "const": "textContains" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "expected": { "type": "string" },
+            "ignoreCase": { "type": "boolean" }
+          },
+          "required": ["type", "locator", "expected"]
+        },
+        {
+          "properties": {
+            "type": { "const": "textEquals" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "expected": { "type": "string" },
+            "ignoreCase": { "type": "boolean" }
+          },
+          "required": ["type", "locator", "expected"]
+        },
+        {
+          "properties": {
+            "type": { "const": "hasValue" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "expected": { "type": "string" }
+          },
+          "required": ["type", "locator", "expected"]
+        },
+        {
+          "properties": {
+            "type": { "const": "hasAttribute" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "attribute": { "type": "string" },
+            "value": { "type": "string" }
+          },
+          "required": ["type", "locator", "attribute"]
+        },
+        {
+          "properties": {
+            "type": { "const": "hasClass" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "className": { "type": "string" }
+          },
+          "required": ["type", "locator", "className"]
+        },
+        {
+          "properties": {
+            "type": { "const": "urlMatches" },
+            "pattern": { "type": "string" }
+          },
+          "required": ["type", "pattern"]
+        },
+        {
+          "properties": {
+            "type": { "const": "urlContains" },
+            "value": { "type": "string" }
+          },
+          "required": ["type", "value"]
+        },
+        {
+          "properties": {
+            "type": { "const": "elementCount" },
+            "locator": { "$ref": "#/definitions/locator" },
+            "count": { "type": "number" },
+            "operator": { "enum": ["eq", "gt", "gte", "lt", "lte"] }
+          },
+          "required": ["type", "locator", "count"]
+        },
+        {
+          "properties": {
+            "type": { "const": "consoleContains" },
+            "message": { "type": "string" },
+            "level": { "enum": ["log", "warn", "error", "info", "debug"] }
+          },
+          "required": ["type", "message"]
+        },
+        {
+          "properties": {
+            "type": { "const": "titleContains" },
+            "expected": { "type": "string" }
+          },
+          "required": ["type", "expected"]
+        },
+        {
+          "properties": {
+            "type": { "const": "titleEquals" },
+            "expected": { "type": "string" }
+          },
+          "required": ["type", "expected"]
+        },
+        {
+          "properties": {
+            "type": { "const": "enabled" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["type", "locator"]
+        },
+        {
+          "properties": {
+            "type": { "const": "disabled" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["type", "locator"]
+        },
+        {
+          "properties": {
+            "type": { "const": "checked" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["type", "locator"]
+        },
+        {
+          "properties": {
+            "type": { "const": "unchecked" },
+            "locator": { "$ref": "#/definitions/locator" }
+          },
+          "required": ["type", "locator"]
+        }
+      ]
+    }
+  }
+}

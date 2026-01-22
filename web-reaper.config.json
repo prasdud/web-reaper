@@ -1,0 +1,20 @@
+{
+  "$comment": "Web Reaper Configuration",
+  "baseUrl": "http://localhost:3000",
+  "flowsDir": "./flows",
+  "authDir": "./auth",
+  "reportsDir": "./reports",
+  "screenshotsOnFailure": true,
+  "timeout": 30000,
+  "retries": 0,
+  "parallel": 1,
+  "injectReactGrab": true,
+  "actionVerification": true,
+  "headless": true,
+  "browser": "chromium",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "defaultVariables": {}
+}

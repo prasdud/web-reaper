@@ -1,0 +1,111 @@
+{
+  "$schema": "./flow.schema.json",
+  "name": "Example Login Flow",
+  "description": "Demonstrates a typical login flow with variable interpolation and assertions",
+  "baseUrl": "http://localhost:3000",
+  "requiresAuth": false,
+  "variables": {
+    "email": "test@example.com",
+    "password": "password123"
+  },
+  "tags": ["auth", "login", "example"],
+  "steps": [
+    {
+      "id": "step-1",
+      "action": "navigate",
+      "url": "/login",
+      "description": "Navigate to login page"
+    },
+    {
+      "id": "step-2",
+      "action": "waitForSelector",
+      "locator": {
+        "strategies": [
+          { "type": "testId", "value": "login-form" },
+          { "type": "css", "value": "form" }
+        ]
+      },
+      "state": "visible",
+      "description": "Wait for login form to appear"
+    },
+    {
+      "id": "step-3",
+      "action": "fill",
+      "locator": {
+        "strategies": [
+          { "type": "testId", "value": "email-input" },
+          { "type": "placeholder", "value": "Email" },
+          { "type": "css", "value": "input[type='email']" }
+        ]
+      },
+      "value": "{{email}}",
+      "description": "Enter email address"
+    },
+    {
+      "id": "step-4",
+      "action": "fill",
+      "locator": {
+        "strategies": [
+          { "type": "testId", "value": "password-input" },
+          { "type": "placeholder", "value": "Password" },
+          { "type": "css", "value": "input[type='password']" }
+        ]
+      },
+      "value": "{{password}}",
+      "description": "Enter password"
+    },
+    {
+      "id": "step-5",
+      "action": "click",
+      "locator": {
+        "strategies": [
+          { "type": "testId", "value": "login-button" },
+          { "type": "role", "value": "button", "name": "Log In" },
+          { "type": "css", "value": "button[type='submit']" }
+        ]
+      },
+      "description": "Click login button"
+    },
+    {
+      "id": "step-6",
+      "action": "waitForNavigation",
+      "url": "/dashboard",
+      "timeout": 10000,
+      "description": "Wait for redirect to dashboard"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "assert-1",
+      "type": "urlContains",
+      "value": "/dashboard",
+      "description": "URL should contain /dashboard"
+    },
+    {
+      "id": "assert-2",
+      "type": "visible",
+      "locator": {
+        "strategies": [
+          { "type": "testId", "value": "dashboard-header" },
+          { "type": "css", "value": "header" }
+        ]
+      },
+      "description": "Dashboard header should be visible"
+    },
+    {
+      "id": "assert-3",
+      "type": "textContains",
+      "locator": {
+        "strategies": [
+          { "type": "testId", "value": "welcome-message" }
+        ]
+      },
+      "expected": "Welcome",
+      "description": "Welcome message should be displayed"
+    }
+  ],
+  "onSuccess": {
+    "saveAuth": true,
+    "authFile": "auth/logged-in.json"
+  }
+}
