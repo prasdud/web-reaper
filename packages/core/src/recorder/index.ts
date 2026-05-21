@@ -179,88 +179,98 @@ const RECORDER_PANEL_SCRIPT = `
 (function() {
   if (window.__webReaperPanel) return;
 
-  const panel = document.createElement('div');
-  panel.id = '__web-reaper-panel';
-  panel.innerHTML = \`
-    <div style="
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #1a1a2e;
-      color: white;
-      padding: 16px;
-      border-radius: 12px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 14px;
-      z-index: 999999;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      min-width: 280px;
-    ">
-      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-        <div style="width: 12px; height: 12px; background: #ff4757; border-radius: 50%; animation: pulse 1.5s infinite;"></div>
-        <span style="font-weight: 600;">Web Reaper Recording</span>
+  function injectPanel() {
+    if (window.__webReaperPanel) return;
+
+    const panel = document.createElement('div');
+    panel.id = '__web-reaper-panel';
+    panel.innerHTML = \`
+      <div style="
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #1a1a2e;
+        color: white;
+        padding: 16px;
+        border-radius: 12px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 14px;
+        z-index: 999999;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        min-width: 280px;
+      ">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <div style="width: 12px; height: 12px; background: #ff4757; border-radius: 50%; animation: pulse 1.5s infinite;"></div>
+          <span style="font-weight: 600;">Web Reaper Recording</span>
+        </div>
+        <div id="__web-reaper-actions" style="color: #a0a0a0; font-size: 12px; max-height: 150px; overflow-y: auto;">
+          <div>Waiting for actions...</div>
+        </div>
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+          <button id="__web-reaper-assert" style="
+            flex: 1;
+            padding: 8px 12px;
+            background: #4834d4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+          ">+ Add Assertion</button>
+          <button id="__web-reaper-stop" style="
+            flex: 1;
+            padding: 8px 12px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+          ">Stop Recording</button>
+        </div>
       </div>
-      <div id="__web-reaper-actions" style="color: #a0a0a0; font-size: 12px; max-height: 150px; overflow-y: auto;">
-        <div>Waiting for actions...</div>
-      </div>
-      <div style="margin-top: 12px; display: flex; gap: 8px;">
-        <button id="__web-reaper-assert" style="
-          flex: 1;
-          padding: 8px 12px;
-          background: #4834d4;
-          color: white;
-          border: none;
-          border-radius: 6px;
-          cursor: pointer;
-          font-size: 12px;
-        ">+ Add Assertion</button>
-        <button id="__web-reaper-stop" style="
-          flex: 1;
-          padding: 8px 12px;
-          background: #ff4757;
-          color: white;
-          border: none;
-          border-radius: 6px;
-          cursor: pointer;
-          font-size: 12px;
-        ">Stop Recording</button>
-      </div>
-    </div>
-    <style>
-      @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
-      }
-    </style>
-  \`;
-  document.body.appendChild(panel);
-  window.__webReaperPanel = panel;
+      <style>
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+      </style>
+    \`;
+    document.body.appendChild(panel);
+    window.__webReaperPanel = panel;
 
-  // Update actions display
-  window.__webReaperUpdatePanel = function(actions) {
-    const container = document.getElementById('__web-reaper-actions');
-    if (!container) return;
-    
-    const lastActions = actions.slice(-5);
-    container.innerHTML = lastActions.map(a => 
-      '<div style="padding: 4px 0; border-bottom: 1px solid #333;">' + 
-      a.type + (a.selector ? ' on ' + a.selector.substring(0, 30) : '') +
-      '</div>'
-    ).join('') || '<div>Waiting for actions...</div>';
-  };
+    // Update actions display
+    window.__webReaperUpdatePanel = function(actions) {
+      const container = document.getElementById('__web-reaper-actions');
+      if (!container) return;
 
-  // Stop button
-  document.getElementById('__web-reaper-stop').addEventListener('click', function() {
-    window.__webReaperStopRequested = true;
-  });
+      const lastActions = actions.slice(-5);
+      container.innerHTML = lastActions.map(a =>
+        '<div style="padding: 4px 0; border-bottom: 1px solid #333;">' +
+        a.type + (a.selector ? ' on ' + a.selector.substring(0, 30) : '') +
+        '</div>'
+      ).join('') || '<div>Waiting for actions...</div>';
+    };
 
-  // Assert button
-  document.getElementById('__web-reaper-assert').addEventListener('click', function() {
-    window.__webReaperAssertMode = true;
-    alert('Click on an element to add an assertion for it.');
-  });
+    // Stop button
+    document.getElementById('__web-reaper-stop').addEventListener('click', function() {
+      window.__webReaperStopRequested = true;
+    });
 
-  console.log('[web-reaper] Panel loaded');
+    // Assert button
+    document.getElementById('__web-reaper-assert').addEventListener('click', function() {
+      window.__webReaperAssertMode = true;
+      alert('Click on an element to add an assertion for it.');
+    });
+
+    console.log('[web-reaper] Panel loaded');
+  }
+
+  if (document.body) {
+    injectPanel();
+  } else {
+    document.addEventListener('DOMContentLoaded', injectPanel);
+  }
 })();
 `;
 
@@ -308,8 +318,9 @@ export class Recorder {
     this.context = await this.browser.newContext(contextOptions);
     this.page = await this.context.newPage();
 
-    // Inject scripts
+    // Inject scripts (addInitScript survives navigation)
     await this.page.addInitScript(REACT_GRAB_INJECTION);
+    await this.page.addInitScript(RECORDER_PANEL_SCRIPT);
 
     // Set up event listeners
     this.setupListeners();
@@ -323,9 +334,6 @@ export class Recorder {
       url: this.options.baseUrl,
       timestamp: Date.now(),
     });
-
-    // Inject recorder panel
-    await this.page.evaluate(RECORDER_PANEL_SCRIPT);
 
     this.state.isRecording = true;
     this.options.onStart?.();
@@ -380,20 +388,23 @@ export class Recorder {
   async waitForStop(): Promise<RecordedAction[]> {
     if (!this.page) throw new Error('Recorder not started');
 
-    // Poll for stop request
     while (true) {
-      const stopRequested = await this.page.evaluate(() => {
-        return (window as any).__webReaperStopRequested === true;
-      });
+      try {
+        const stopRequested = await this.page.evaluate(() => {
+          return (window as any).__webReaperStopRequested === true;
+        });
 
-      if (stopRequested) {
-        break;
+        if (stopRequested) {
+          break;
+        }
+
+        await this.page.evaluate((actions) => {
+          (window as any).__webReaperUpdatePanel?.(actions);
+        }, this.state.actions);
+      } catch {
+        // Page navigated — execution context was destroyed.
+        // addInitScript will re-inject panel and state on next page load.
       }
-
-      // Update panel with recorded actions
-      await this.page.evaluate((actions) => {
-        (window as any).__webReaperUpdatePanel?.(actions);
-      }, this.state.actions);
 
       await this.page.waitForTimeout(500);
     }

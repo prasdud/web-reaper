@@ -20,12 +20,12 @@ Thumbs.db
 npm-debug.log*
 
 # Test artifacts
-reports/*.html
-reports/*.json
-reports/screenshots/
+**/reports/*.html
+**/reports/*.json
+**/reports/screenshots/
 
-# Auth state (contains sensitive cookies)
-auth/*.json
+# Auth state (contains sensitive cookies / OAuth tokens)
+**/auth/*.json
 !auth/.gitkeep
 
 # Turbo
