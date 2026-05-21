@@ -67,13 +67,19 @@ export class Runner {
     const config = this.options.config;
     const browserType = chromium; // TODO: Support other browsers
 
+    const headed = this.options.headed || false;
+
     this.browser = await browserType.launch({
-      headless: !this.options.headed && (config.headless ?? true),
+      headless: !headed && (config.headless ?? true),
+      args: headed ? ['--start-maximized'] : undefined,
     });
 
-    const contextOptions: any = {
-      viewport: config.viewport || { width: 1280, height: 720 },
-    };
+    const contextOptions: any = {};
+
+    // Set viewport only in headless mode; headed uses full window
+    if (!headed) {
+      contextOptions.viewport = config.viewport || { width: 1280, height: 720 };
+    }
 
     // Load auth state if specified
     const authFile = flow.authFile || this.options.loadAuth;
@@ -284,6 +290,7 @@ export class Runner {
           button: action.button,
           clickCount: action.clickCount,
         });
+        await this.page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
         break;
       }
 
@@ -297,6 +304,7 @@ export class Runner {
         const locator = await toPlaywrightLocator(this.page, action.locator);
         const value = interpolate(action.value, variables);
         await locator.fill(value, { timeout });
+        await this.page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
         break;
       }
 
@@ -319,6 +327,7 @@ export class Runner {
         } else {
           await locator.selectOption(String(value), { timeout });
         }
+        await this.page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
         break;
       }
 
