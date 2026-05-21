@@ -164,12 +164,12 @@ const EVENT_CAPTURE_INJECTION = `
     var path = [];
     var current = element;
     while (current && current !== document.body) {
-      var selector = current.tagName.toLowerCase();
-      if (current.id) { path.unshift('#' + current.id); break; }
-      if (current.className && typeof current.className === 'string') {
-        var cls = current.className.split(' ')[0];
-        if (cls && cls.indexOf('_') === -1) selector += '.' + cls;
-      }
+    var selector = current.tagName.toLowerCase();
+    if (current.id) { path.unshift('#' + CSS.escape(current.id)); break; }
+    if (current.className && typeof current.className === 'string') {
+      var cls = current.className.split(' ')[0];
+      if (cls && cls.indexOf('_') === -1) selector += '.' + CSS.escape(cls);
+    }
       var parent = current.parentElement;
       if (parent) {
         var siblings = Array.prototype.filter.call(parent.children, function(c) {
