@@ -167,6 +167,114 @@ const REACT_GRAB_INJECTION = `
     return captureElementInfo(element);
   };
 
+  // Generate CSS selector for an element
+  function generateSelector(element) {
+    var testId = element.getAttribute('data-testid') || element.getAttribute('data-test-id');
+    if (testId) return '[data-testid="' + testId + '"]';
+    if (element.id) return '#' + element.id;
+    var path = [];
+    var current = element;
+    while (current && current !== document.body) {
+      var selector = current.tagName.toLowerCase();
+      if (current.id) { path.unshift('#' + current.id); break; }
+      if (current.className) {
+        var cls = current.className.split(' ')[0];
+        if (cls && cls.indexOf('_') === -1) selector += '.' + cls;
+      }
+      var parent = current.parentElement;
+      if (parent) {
+        var siblings = Array.prototype.filter.call(parent.children, function(c) {
+          return c.tagName === current.tagName;
+        });
+        if (siblings.length > 1) {
+          selector += ':nth-child(' + (Array.prototype.indexOf.call(siblings, current) + 1) + ')';
+        }
+      }
+      path.unshift(selector);
+      current = current.parentElement;
+    }
+    return path.join(' > ');
+  }
+
+  // Attach event listeners for recording user interactions
+  if (!window.__webReaperListenersAttached) {
+    window.__webReaperListenersAttached = true;
+
+    document.addEventListener('click', function(e) {
+      var el = e.target;
+      if (!el || !el.tagName) return;
+      if (window.__webReaperRecordAction) {
+        window.__webReaperRecordAction({
+          type: 'click',
+          selector: generateSelector(el),
+          elementInfo: captureElementInfo(el),
+          timestamp: Date.now()
+        });
+      }
+    }, { capture: true });
+
+    document.addEventListener('input', function(e) {
+      var el = e.target;
+      if (!el || !el.tagName) return;
+      if (window.__webReaperRecordAction) {
+        window.__webReaperRecordAction({
+          type: 'fill',
+          selector: generateSelector(el),
+          value: el.value,
+          elementInfo: captureElementInfo(el),
+          timestamp: Date.now()
+        });
+      }
+    }, { capture: true });
+
+    document.addEventListener('change', function(e) {
+      var el = e.target;
+      if (!el || !el.tagName) return;
+      var info = captureElementInfo(el);
+      if (el.tagName === 'SELECT') {
+        window.__webReaperRecordAction && window.__webReaperRecordAction({
+          type: 'select',
+          selector: generateSelector(el),
+          value: el.value,
+          elementInfo: info,
+          timestamp: Date.now()
+        });
+      } else if (el.type === 'checkbox') {
+        window.__webReaperRecordAction && window.__webReaperRecordAction({
+          type: el.checked ? 'check' : 'uncheck',
+          selector: generateSelector(el),
+          elementInfo: info,
+          timestamp: Date.now()
+        });
+      } else if (el.type === 'file' && el.files && el.files.length) {
+        var fileNames = [];
+        for (var i = 0; i < el.files.length; i++) fileNames.push(el.files[i].name);
+        window.__webReaperRecordAction && window.__webReaperRecordAction({
+          type: 'upload',
+          selector: generateSelector(el),
+          files: fileNames,
+          elementInfo: info,
+          timestamp: Date.now()
+        });
+      }
+    }, { capture: true });
+
+    document.addEventListener('keydown', function(e) {
+      var specialKeys = ['Enter', 'Tab', 'Escape', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+      if (specialKeys.indexOf(e.key) === -1) return;
+      var el = e.target;
+      if (window.__webReaperRecordAction) {
+        window.__webReaperRecordAction({
+          type: 'press',
+          key: e.key,
+          selector: el ? generateSelector(el) : undefined,
+          elementInfo: el ? captureElementInfo(el) : undefined,
+          timestamp: Date.now()
+        });
+      }
+    }, { capture: true });
+  }
+
   console.log('[web-reaper] Injection loaded');
 })();
 `;
