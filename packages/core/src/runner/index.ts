@@ -11,6 +11,7 @@ import type {
 } from '../types/index.js';
 import { toPlaywrightLocator, describeLocator } from '../utils/locator.js';
 import { interpolate, mergeVariables, type Variables } from '../utils/variables.js';
+import { REACT_GRAB_BRIDGE } from '../injection/react-grab.js';
 
 /**
  * Runner options
@@ -92,8 +93,9 @@ export class Runner {
       });
     });
 
-    // Inject react-grab bridge if enabled
+    // Inject react-grab bridge for element stamping and action verification
     if (config.injectReactGrab) {
+      await this.page.addInitScript(REACT_GRAB_BRIDGE);
       await this.injectReactGrabBridge();
     }
   }

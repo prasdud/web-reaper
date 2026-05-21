@@ -3,6 +3,7 @@ import type { Flow, Action, Locator, Config } from '../types/index.js';
 import { createAction, resetActionCounter } from '../types/action.js';
 import { createAssertion, resetAssertionCounter } from '../types/assertion.js';
 import { inferLocatorStrategies } from '../utils/locator.js';
+import { REACT_GRAB_BRIDGE } from '../injection/react-grab.js';
 
 /**
  * Recorded action from the browser
@@ -76,98 +77,86 @@ export interface RecorderOptions {
  * React-grab injection script
  * This is injected into the page to capture React component information
  */
-const REACT_GRAB_INJECTION = `
+/**
+ * Event capture injection script
+ * Sets up listeners to forward user actions to the recorder
+ */
+const EVENT_CAPTURE_INJECTION = `
 (function() {
-  if (window.__webReaperInjected) return;
-  window.__webReaperInjected = true;
-
-  // Store for captured element info
-  window.__webReaperElementInfo = null;
-
-  // Get React fiber from element
-  function getReactFiber(element) {
-    const keys = Object.keys(element);
-    for (const key of keys) {
-      if (key.startsWith('__reactFiber$') || key.startsWith('__reactInternalInstance$')) {
-        return element[key];
-      }
+  document.addEventListener('click', function(e) {
+    var el = e.target;
+    if (!el || !el.tagName) return;
+    if (window.__webReaperRecordAction) {
+      window.__webReaperRecordAction({
+        type: 'click',
+        selector: generateSelector(el),
+        elementInfo: window.__webReaperCaptureElementInfo(el),
+        timestamp: Date.now()
+      });
     }
-    return null;
-  }
+  }, { capture: true });
 
-  // Get component name from fiber
-  function getComponentName(fiber) {
-    if (!fiber) return null;
-    
-    let current = fiber;
-    while (current) {
-      if (current.type) {
-        if (typeof current.type === 'string') {
-          current = current.return;
-          continue;
-        }
-        const name = current.type.displayName || current.type.name;
-        if (name && !name.startsWith('_')) {
-          return name;
-        }
-      }
-      current = current.return;
+  document.addEventListener('input', function(e) {
+    var el = e.target;
+    if (!el || !el.tagName) return;
+    if (window.__webReaperRecordAction) {
+      window.__webReaperRecordAction({
+        type: 'fill',
+        selector: generateSelector(el),
+        value: el.value,
+        elementInfo: window.__webReaperCaptureElementInfo(el),
+        timestamp: Date.now()
+      });
     }
-    return null;
-  }
+  }, { capture: true });
 
-  // Get source info from fiber
-  function getSourceInfo(fiber) {
-    if (!fiber) return null;
-    
-    let current = fiber;
-    while (current) {
-      if (current._debugSource) {
-        return {
-          fileName: current._debugSource.fileName,
-          lineNumber: current._debugSource.lineNumber,
-        };
-      }
-      current = current.return;
+  document.addEventListener('change', function(e) {
+    var el = e.target;
+    if (!el || !el.tagName) return;
+    var info = window.__webReaperCaptureElementInfo(el);
+    if (el.tagName === 'SELECT') {
+      window.__webReaperRecordAction && window.__webReaperRecordAction({
+        type: 'select',
+        selector: generateSelector(el),
+        value: el.value,
+        elementInfo: info,
+        timestamp: Date.now()
+      });
+    } else if (el.type === 'checkbox') {
+      window.__webReaperRecordAction && window.__webReaperRecordAction({
+        type: el.checked ? 'check' : 'uncheck',
+        selector: generateSelector(el),
+        elementInfo: info,
+        timestamp: Date.now()
+      });
+    } else if (el.type === 'file' && el.files && el.files.length) {
+      var fileNames = [];
+      for (var i = 0; i < el.files.length; i++) fileNames.push(el.files[i].name);
+      window.__webReaperRecordAction && window.__webReaperRecordAction({
+        type: 'upload',
+        selector: generateSelector(el),
+        files: fileNames,
+        elementInfo: info,
+        timestamp: Date.now()
+      });
     }
-    return null;
-  }
+  }, { capture: true });
 
-  // Capture element info
-  function captureElementInfo(element) {
-    const fiber = getReactFiber(element);
-    const componentName = getComponentName(fiber);
-    const sourceInfo = getSourceInfo(fiber);
+  document.addEventListener('keydown', function(e) {
+    var specialKeys = ['Enter', 'Tab', 'Escape', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+    if (specialKeys.indexOf(e.key) === -1) return;
+    var el = e.target;
+    if (window.__webReaperRecordAction) {
+      window.__webReaperRecordAction({
+        type: 'press',
+        key: e.key,
+        selector: el ? generateSelector(el) : undefined,
+        elementInfo: el ? window.__webReaperCaptureElementInfo(el) : undefined,
+        timestamp: Date.now()
+      });
+    }
+  }, { capture: true });
 
-    return {
-      testId: element.getAttribute('data-testid') || element.getAttribute('data-test-id'),
-      role: element.getAttribute('role') || element.tagName.toLowerCase(),
-      ariaLabel: element.getAttribute('aria-label'),
-      text: element.textContent?.trim().substring(0, 100),
-      placeholder: element.getAttribute('placeholder'),
-      tagName: element.tagName,
-      className: element.className,
-      id: element.id,
-      componentName: componentName,
-      componentFile: sourceInfo?.fileName,
-      componentLine: sourceInfo?.lineNumber,
-    };
-  }
-
-  // Expose to Playwright
-  window.__webReaperGetElementInfo = function(selector) {
-    const element = document.querySelector(selector);
-    if (!element) return null;
-    return captureElementInfo(element);
-  };
-
-  window.__webReaperGetElementInfoFromPoint = function(x, y) {
-    const element = document.elementFromPoint(x, y);
-    if (!element) return null;
-    return captureElementInfo(element);
-  };
-
-  // Generate CSS selector for an element
   function generateSelector(element) {
     var testId = element.getAttribute('data-testid') || element.getAttribute('data-test-id');
     if (testId) return '[data-testid="' + testId + '"]';
@@ -177,7 +166,7 @@ const REACT_GRAB_INJECTION = `
     while (current && current !== document.body) {
       var selector = current.tagName.toLowerCase();
       if (current.id) { path.unshift('#' + current.id); break; }
-      if (current.className) {
+      if (current.className && typeof current.className === 'string') {
         var cls = current.className.split(' ')[0];
         if (cls && cls.indexOf('_') === -1) selector += '.' + cls;
       }
@@ -195,87 +184,6 @@ const REACT_GRAB_INJECTION = `
     }
     return path.join(' > ');
   }
-
-  // Attach event listeners for recording user interactions
-  if (!window.__webReaperListenersAttached) {
-    window.__webReaperListenersAttached = true;
-
-    document.addEventListener('click', function(e) {
-      var el = e.target;
-      if (!el || !el.tagName) return;
-      if (window.__webReaperRecordAction) {
-        window.__webReaperRecordAction({
-          type: 'click',
-          selector: generateSelector(el),
-          elementInfo: captureElementInfo(el),
-          timestamp: Date.now()
-        });
-      }
-    }, { capture: true });
-
-    document.addEventListener('input', function(e) {
-      var el = e.target;
-      if (!el || !el.tagName) return;
-      if (window.__webReaperRecordAction) {
-        window.__webReaperRecordAction({
-          type: 'fill',
-          selector: generateSelector(el),
-          value: el.value,
-          elementInfo: captureElementInfo(el),
-          timestamp: Date.now()
-        });
-      }
-    }, { capture: true });
-
-    document.addEventListener('change', function(e) {
-      var el = e.target;
-      if (!el || !el.tagName) return;
-      var info = captureElementInfo(el);
-      if (el.tagName === 'SELECT') {
-        window.__webReaperRecordAction && window.__webReaperRecordAction({
-          type: 'select',
-          selector: generateSelector(el),
-          value: el.value,
-          elementInfo: info,
-          timestamp: Date.now()
-        });
-      } else if (el.type === 'checkbox') {
-        window.__webReaperRecordAction && window.__webReaperRecordAction({
-          type: el.checked ? 'check' : 'uncheck',
-          selector: generateSelector(el),
-          elementInfo: info,
-          timestamp: Date.now()
-        });
-      } else if (el.type === 'file' && el.files && el.files.length) {
-        var fileNames = [];
-        for (var i = 0; i < el.files.length; i++) fileNames.push(el.files[i].name);
-        window.__webReaperRecordAction && window.__webReaperRecordAction({
-          type: 'upload',
-          selector: generateSelector(el),
-          files: fileNames,
-          elementInfo: info,
-          timestamp: Date.now()
-        });
-      }
-    }, { capture: true });
-
-    document.addEventListener('keydown', function(e) {
-      var specialKeys = ['Enter', 'Tab', 'Escape', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
-      if (specialKeys.indexOf(e.key) === -1) return;
-      var el = e.target;
-      if (window.__webReaperRecordAction) {
-        window.__webReaperRecordAction({
-          type: 'press',
-          key: e.key,
-          selector: el ? generateSelector(el) : undefined,
-          elementInfo: el ? captureElementInfo(el) : undefined,
-          timestamp: Date.now()
-        });
-      }
-    }, { capture: true });
-  }
-
-  console.log('[web-reaper] Injection loaded');
 })();
 `;
 
@@ -427,7 +335,8 @@ export class Recorder {
     this.page = await this.context.newPage();
 
     // Inject scripts (addInitScript survives navigation)
-    await this.page.addInitScript(REACT_GRAB_INJECTION);
+    await this.page.addInitScript(REACT_GRAB_BRIDGE);
+    await this.page.addInitScript(EVENT_CAPTURE_INJECTION);
     await this.page.addInitScript(RECORDER_PANEL_SCRIPT);
 
     // Set up event listeners

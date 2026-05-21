@@ -1,0 +1,1190 @@
+{
+  "name": "login",
+  "description": "Recorded flow for login",
+  "baseUrl": "http://localhost:4000",
+  "steps": [
+    {
+      "action": "navigate",
+      "id": "step-1",
+      "url": "http://localhost:4000"
+    },
+    {
+      "action": "click",
+      "id": "step-2",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "Button"
+          },
+          {
+            "type": "text",
+            "value": "Continue with Google"
+          },
+          {
+            "type": "css",
+            "value": "button.group/button"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-3",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      }
+    },
+    {
+      "action": "fill",
+      "id": "step-4",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "m"
+    },
+    {
+      "action": "fill",
+      "id": "step-5",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "mu"
+    },
+    {
+      "action": "fill",
+      "id": "step-6",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muh"
+    },
+    {
+      "action": "fill",
+      "id": "step-7",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muha"
+    },
+    {
+      "action": "fill",
+      "id": "step-8",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muham"
+    },
+    {
+      "action": "fill",
+      "id": "step-9",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhamm"
+    },
+    {
+      "action": "fill",
+      "id": "step-10",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhamme"
+    },
+    {
+      "action": "fill",
+      "id": "step-11",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed"
+    },
+    {
+      "action": "fill",
+      "id": "step-12",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed."
+    },
+    {
+      "action": "fill",
+      "id": "step-13",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a"
+    },
+    {
+      "action": "fill",
+      "id": "step-14",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a."
+    },
+    {
+      "action": "fill",
+      "id": "step-15",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.m"
+    },
+    {
+      "action": "fill",
+      "id": "step-16",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.mu"
+    },
+    {
+      "action": "fill",
+      "id": "step-17",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.mui"
+    },
+    {
+      "action": "fill",
+      "id": "step-18",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid"
+    },
+    {
+      "action": "fill",
+      "id": "step-19",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@"
+    },
+    {
+      "action": "fill",
+      "id": "step-20",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@h"
+    },
+    {
+      "action": "fill",
+      "id": "step-21",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@ho"
+    },
+    {
+      "action": "fill",
+      "id": "step-22",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@hou"
+    },
+    {
+      "action": "fill",
+      "id": "step-23",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@hous"
+    },
+    {
+      "action": "fill",
+      "id": "step-24",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@house"
+    },
+    {
+      "action": "fill",
+      "id": "step-25",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseo"
+    },
+    {
+      "action": "fill",
+      "id": "step-26",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseof"
+    },
+    {
+      "action": "fill",
+      "id": "step-27",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseofe"
+    },
+    {
+      "action": "fill",
+      "id": "step-28",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseofed"
+    },
+    {
+      "action": "fill",
+      "id": "step-29",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseofedt"
+    },
+    {
+      "action": "fill",
+      "id": "step-30",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseofedte"
+    },
+    {
+      "action": "fill",
+      "id": "step-31",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseofedtec"
+    },
+    {
+      "action": "fill",
+      "id": "step-32",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseofedtech"
+    },
+    {
+      "action": "fill",
+      "id": "step-33",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseofedtech."
+    },
+    {
+      "action": "fill",
+      "id": "step-34",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseofedtech.i"
+    },
+    {
+      "action": "fill",
+      "id": "step-35",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "muhammed.a.muid@houseofedtech.in"
+    },
+    {
+      "action": "press",
+      "id": "step-36",
+      "key": "Enter",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Email or phone"
+          },
+          {
+            "type": "label",
+            "value": "Email or phone"
+          },
+          {
+            "type": "css",
+            "value": "#identifierId"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      }
+    },
+    {
+      "action": "fill",
+      "id": "step-37",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "M"
+    },
+    {
+      "action": "fill",
+      "id": "step-38",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "Ma"
+    },
+    {
+      "action": "fill",
+      "id": "step-39",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "Maf"
+    },
+    {
+      "action": "fill",
+      "id": "step-40",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "Maf2"
+    },
+    {
+      "action": "fill",
+      "id": "step-41",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "Maf25"
+    },
+    {
+      "action": "fill",
+      "id": "step-42",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "Maf251"
+    },
+    {
+      "action": "fill",
+      "id": "step-43",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "Maf2511"
+    },
+    {
+      "action": "fill",
+      "id": "step-44",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "Maf25110"
+    },
+    {
+      "action": "fill",
+      "id": "step-45",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "Maf251102"
+    },
+    {
+      "action": "fill",
+      "id": "step-46",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      },
+      "value": "Maf251102#"
+    },
+    {
+      "action": "press",
+      "id": "step-47",
+      "key": "Enter",
+      "locator": {
+        "strategies": [
+          {
+            "type": "role",
+            "value": "input",
+            "name": "Enter your password"
+          },
+          {
+            "type": "label",
+            "value": "Enter your password"
+          },
+          {
+            "type": "css",
+            "value": "input.whsOnd"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-48",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.VfPpkd-RLmnJb"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-49",
+      "locator": {
+        "strategies": [
+          {
+            "type": "text",
+            "value": "Stop Recording"
+          },
+          {
+            "type": "css",
+            "value": "#__web-reaper-stop"
+          }
+        ]
+      }
+    }
+  ],
+  "assertions": [],
+  "onSuccess": {
+    "saveAuth": true,
+    "authFile": "auth/session.json"
+  }
+}

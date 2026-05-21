@@ -133,7 +133,25 @@ export function inferLocatorStrategies(elementInfo: {
     strategies.push({ type: 'placeholder', value: elementInfo.placeholder });
   }
 
-  // Priority 5: React component
+  // Priority 5: Text content (for buttons, links)
+  if (elementInfo.text && elementInfo.text.length < 50) {
+    strategies.push({ type: 'text', value: elementInfo.text });
+  }
+
+  // Priority 6: CSS ID selector
+  if (elementInfo.id) {
+    strategies.push({ type: 'css', value: `#${elementInfo.id}` });
+  }
+
+  // Priority 7: Tag + class combination
+  if (elementInfo.tagName && elementInfo.className) {
+    const mainClass = elementInfo.className.split(' ')[0];
+    if (mainClass && !mainClass.includes('_') && mainClass.length < 30) {
+      strategies.push({ type: 'css', value: `${elementInfo.tagName.toLowerCase()}.${mainClass}` });
+    }
+  }
+
+  // Priority 8: React component name (informational, relies on data-react-component attrs)
   if (elementInfo.componentName) {
     strategies.push({
       type: 'component',
@@ -141,24 +159,6 @@ export function inferLocatorStrategies(elementInfo: {
       file: elementInfo.componentFile,
       line: elementInfo.componentLine,
     });
-  }
-
-  // Priority 6: Text content (for buttons, links)
-  if (elementInfo.text && elementInfo.text.length < 50) {
-    strategies.push({ type: 'text', value: elementInfo.text });
-  }
-
-  // Priority 7: CSS ID selector
-  if (elementInfo.id) {
-    strategies.push({ type: 'css', value: `#${elementInfo.id}` });
-  }
-
-  // Priority 8: Tag + class combination
-  if (elementInfo.tagName && elementInfo.className) {
-    const mainClass = elementInfo.className.split(' ')[0];
-    if (mainClass && !mainClass.includes('_') && mainClass.length < 30) {
-      strategies.push({ type: 'css', value: `${elementInfo.tagName.toLowerCase()}.${mainClass}` });
-    }
   }
 
   // Fallback: Just tag name (not recommended)

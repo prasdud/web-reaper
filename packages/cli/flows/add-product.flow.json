@@ -1,0 +1,1007 @@
+{
+  "name": "add-product",
+  "description": "Recorded flow for add-product",
+  "baseUrl": "http://localhost:4000",
+  "authFile": "auth/session.json",
+  "steps": [
+    {
+      "action": "navigate",
+      "id": "step-1",
+      "url": "http://localhost:4000"
+    },
+    {
+      "action": "click",
+      "id": "step-2",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "LinkComponent"
+          },
+          {
+            "type": "css",
+            "value": "div.group/card"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-3",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "TooltipTrigger"
+          },
+          {
+            "type": "text",
+            "value": "Products"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-4",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "Button"
+          },
+          {
+            "type": "text",
+            "value": "Add Product"
+          },
+          {
+            "type": "css",
+            "value": "button.group/button"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-5",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      }
+    },
+    {
+      "action": "fill",
+      "id": "step-6",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "r"
+    },
+    {
+      "action": "fill",
+      "id": "step-7",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "re"
+    },
+    {
+      "action": "fill",
+      "id": "step-8",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "rea"
+    },
+    {
+      "action": "fill",
+      "id": "step-9",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reap"
+    },
+    {
+      "action": "fill",
+      "id": "step-10",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reape"
+    },
+    {
+      "action": "fill",
+      "id": "step-11",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reaper"
+    },
+    {
+      "action": "fill",
+      "id": "step-12",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reaper-"
+    },
+    {
+      "action": "fill",
+      "id": "step-13",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reaper-t"
+    },
+    {
+      "action": "fill",
+      "id": "step-14",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reaper-te"
+    },
+    {
+      "action": "fill",
+      "id": "step-15",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reaper-tes"
+    },
+    {
+      "action": "fill",
+      "id": "step-16",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reaper-test"
+    },
+    {
+      "action": "fill",
+      "id": "step-17",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reaper-test-"
+    },
+    {
+      "action": "fill",
+      "id": "step-18",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "Amazing Product"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "reaper-test-2"
+    },
+    {
+      "action": "click",
+      "id": "step-19",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "Field"
+          },
+          {
+            "type": "text",
+            "value": "StatusDraft▼"
+          },
+          {
+            "type": "css",
+            "value": "div.space-y-2"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-20",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-21",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SelectItemText"
+          },
+          {
+            "type": "text",
+            "value": "Published"
+          },
+          {
+            "type": "css",
+            "value": "div.flex"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-22",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "Button"
+          },
+          {
+            "type": "text",
+            "value": "Add Price"
+          },
+          {
+            "type": "css",
+            "value": "button.group/button"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-23",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SidebarProvider"
+          },
+          {
+            "type": "css",
+            "value": "div.group/sidebar-wrapper"
+          }
+        ]
+      }
+    },
+    {
+      "action": "fill",
+      "id": "step-24",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "0.00"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#regularPrice-0"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "0.0"
+    },
+    {
+      "action": "fill",
+      "id": "step-25",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "0.00"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#regularPrice-0"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "0"
+    },
+    {
+      "action": "fill",
+      "id": "step-26",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "0.00"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#regularPrice-0"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "0"
+    },
+    {
+      "action": "fill",
+      "id": "step-27",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "0.00"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#regularPrice-0"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "1"
+    },
+    {
+      "action": "fill",
+      "id": "step-28",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "0.00"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#regularPrice-0"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "10"
+    },
+    {
+      "action": "fill",
+      "id": "step-29",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "0.00"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#regularPrice-0"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "100"
+    },
+    {
+      "action": "fill",
+      "id": "step-30",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "0.00"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          },
+          {
+            "type": "css",
+            "value": "#regularPrice-0"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          }
+        ]
+      },
+      "value": "1000"
+    },
+    {
+      "action": "click",
+      "id": "step-31",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "CardHeader"
+          },
+          {
+            "type": "css",
+            "value": "div.flex"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-32",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-33",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-34",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-35",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SelectItemText"
+          },
+          {
+            "type": "text",
+            "value": "new-cp/new-cp"
+          },
+          {
+            "type": "css",
+            "value": "div.flex"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-36",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-37",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-38",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-39",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SelectItemContext"
+          },
+          {
+            "type": "text",
+            "value": "GSTDefault"
+          },
+          {
+            "type": "css",
+            "value": "div.relative"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-40",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-41",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SelectItemText"
+          },
+          {
+            "type": "text",
+            "value": "Mastery"
+          },
+          {
+            "type": "css",
+            "value": "div.flex"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-42",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-43",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SelectItemText"
+          },
+          {
+            "type": "text",
+            "value": "L2 Seat Booking"
+          },
+          {
+            "type": "css",
+            "value": "div.flex"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-44",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SwitchRootContext"
+          },
+          {
+            "type": "css",
+            "value": "#base-ui-_r_39_"
+          },
+          {
+            "type": "css",
+            "value": "span.peer"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-45",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SwitchRootContext"
+          },
+          {
+            "type": "css",
+            "value": "#enableDynamicPg"
+          }
+        ]
+      }
+    },
+    {
+      "action": "fill",
+      "id": "step-46",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SwitchRootContext"
+          },
+          {
+            "type": "css",
+            "value": "#enableDynamicPg"
+          }
+        ]
+      },
+      "value": "on"
+    },
+    {
+      "action": "check",
+      "id": "step-47",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SwitchRootContext"
+          },
+          {
+            "type": "css",
+            "value": "#enableDynamicPg"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-48",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-49",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SelectItemText"
+          },
+          {
+            "type": "text",
+            "value": "Razorpay"
+          },
+          {
+            "type": "css",
+            "value": "div.flex"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-50",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "Button"
+          },
+          {
+            "type": "text",
+            "value": "Create Product"
+          },
+          {
+            "type": "css",
+            "value": "button.group/button"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-51",
+      "locator": {
+        "strategies": [
+          {
+            "type": "text",
+            "value": "Stop Recording"
+          },
+          {
+            "type": "css",
+            "value": "#__web-reaper-stop"
+          }
+        ]
+      }
+    }
+  ],
+  "assertions": []
+}
