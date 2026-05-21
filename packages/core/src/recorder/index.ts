@@ -1,5 +1,6 @@
 import { chromium, type Browser, type BrowserContext, type Page } from 'playwright';
 import type { Flow, Action, Locator, Config } from '../types/index.js';
+import type { LocatorStrategy } from '../types/locator.js';
 import { createAction, resetActionCounter } from '../types/action.js';
 import { createAssertion, resetAssertionCounter } from '../types/assertion.js';
 import { inferLocatorStrategies } from '../utils/locator.js';
@@ -170,15 +171,13 @@ const EVENT_CAPTURE_INJECTION = `
       var cls = current.className.split(' ')[0];
       if (cls && cls.indexOf('_') === -1) selector += '.' + CSS.escape(cls);
     }
-      var parent = current.parentElement;
-      if (parent) {
-        var siblings = Array.prototype.filter.call(parent.children, function(c) {
-          return c.tagName === current.tagName;
-        });
-        if (siblings.length > 1) {
-          selector += ':nth-child(' + (Array.prototype.indexOf.call(siblings, current) + 1) + ')';
-        }
+    var parent = current.parentElement;
+    if (parent) {
+      var index = Array.prototype.indexOf.call(parent.children, current);
+      if (parent.children.length > 1) {
+        selector += ':nth-child(' + (index + 1) + ')';
       }
+    }
       path.unshift(selector);
       current = current.parentElement;
     }
@@ -486,11 +485,16 @@ export class Recorder {
    * Convert a recorded action to a flow step
    */
   private recordedActionToStep(recorded: RecordedAction): Action | null {
-    const locator: Locator | undefined = recorded.elementInfo
-      ? { strategies: inferLocatorStrategies(recorded.elementInfo) }
-      : recorded.selector
-        ? { strategies: [{ type: 'css', value: recorded.selector }] }
-        : undefined;
+    const strategies: LocatorStrategy[] = [];
+    if (recorded.selector) {
+      strategies.push({ type: 'css', value: recorded.selector });
+    }
+    if (recorded.elementInfo) {
+      strategies.push(...inferLocatorStrategies(recorded.elementInfo));
+    }
+    const locator: Locator | undefined = strategies.length > 0
+      ? { strategies }
+      : undefined;
 
     switch (recorded.type) {
       case 'navigate':

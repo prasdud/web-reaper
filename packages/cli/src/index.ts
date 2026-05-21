@@ -49,6 +49,7 @@ program
   .option('-a, --all', 'Run all flows')
   .option('-u, --url <url>', 'Override base URL')
   .option('--headed', 'Run in headed mode (show browser)')
+  .option('--load-auth <file>', 'Load authentication state from file')
   .option('--vars <variables>', 'Variables in key=value,key2=value2 format')
   .option('-d, --dir <dir>', 'Directory containing flow files', './flows')
   .option('--retries <count>', 'Number of retries for failed tests', '0')

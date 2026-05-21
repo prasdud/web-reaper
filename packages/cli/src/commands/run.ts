@@ -18,6 +18,7 @@ interface RunOptions {
   all?: boolean;
   url?: string;
   headed?: boolean;
+  loadAuth?: string;
   vars?: string;
   dir: string;
   retries: string;
@@ -81,6 +82,7 @@ export async function runCommand(options: RunOptions): Promise<void> {
           config,
           variables,
           headed: options.headed,
+          loadAuth: options.loadAuth,
           onStep: (step) => {
             if (step.status === 'passed') {
               spinner.text = `Running ${path.basename(flowFile)}... Step ${step.id} ✓`;

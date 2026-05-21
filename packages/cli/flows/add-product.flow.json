@@ -2,7 +2,6 @@
   "name": "add-product",
   "description": "Recorded flow for add-product",
   "baseUrl": "http://localhost:4000",
-  "authFile": "auth/session.json",
   "steps": [
     {
       "action": "navigate",
@@ -15,12 +14,16 @@
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "LinkComponent"
+            "type": "text",
+            "value": "abdul corpsssabdul corp description modifieds"
           },
           {
             "type": "css",
-            "value": "div.group/card"
+            "value": "div.flex"
+          },
+          {
+            "type": "component",
+            "value": "LinkComponent"
           }
         ]
       }
@@ -31,12 +34,20 @@
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "TooltipTrigger"
-          },
-          {
             "type": "text",
             "value": "Products"
+          },
+          {
+            "type": "css",
+            "value": "#base-ui-_r_9_"
+          },
+          {
+            "type": "css",
+            "value": "button.peer/menu-button"
+          },
+          {
+            "type": "component",
+            "value": "TooltipTrigger"
           }
         ]
       }
@@ -47,16 +58,16 @@
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "Button"
-          },
-          {
             "type": "text",
             "value": "Add Product"
           },
           {
             "type": "css",
             "value": "button.group/button"
+          },
+          {
+            "type": "component",
+            "value": "Button"
           }
         ]
       }
@@ -71,16 +82,16 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       }
@@ -95,16 +106,16 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
@@ -120,16 +131,16 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
@@ -145,16 +156,16 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
@@ -170,16 +181,16 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
@@ -195,16 +206,16 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
@@ -220,16 +231,16 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
@@ -245,16 +256,16 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
@@ -270,20 +281,20 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
-      "value": "reaper-t"
+      "value": "reaper-u"
     },
     {
       "action": "fill",
@@ -295,20 +306,20 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
-      "value": "reaper-te"
+      "value": "reaper-ul"
     },
     {
       "action": "fill",
@@ -320,20 +331,20 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
-      "value": "reaper-tes"
+      "value": "reaper-ult"
     },
     {
       "action": "fill",
@@ -345,20 +356,20 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
-      "value": "reaper-test"
+      "value": "reaper-ultr"
     },
     {
       "action": "fill",
@@ -370,45 +381,32 @@
             "value": "Amazing Product"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#name"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
-      "value": "reaper-test-"
+      "value": "reaper-ultra"
     },
     {
-      "action": "fill",
+      "action": "click",
       "id": "step-18",
       "locator": {
         "strategies": [
           {
-            "type": "placeholder",
-            "value": "Amazing Product"
-          },
-          {
             "type": "component",
-            "value": "FieldControl"
-          },
-          {
-            "type": "css",
-            "value": "#name"
-          },
-          {
-            "type": "css",
-            "value": "input.h-9"
+            "value": "SegmentViewNode"
           }
         ]
-      },
-      "value": "reaper-test-2"
+      }
     },
     {
       "action": "click",
@@ -416,16 +414,16 @@
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "Field"
-          },
-          {
             "type": "text",
-            "value": "StatusDraft▼"
+            "value": "Published"
           },
           {
             "type": "css",
-            "value": "div.space-y-2"
+            "value": "div.flex"
+          },
+          {
+            "type": "component",
+            "value": "SelectItemText"
           }
         ]
       }
@@ -448,16 +446,16 @@
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "SelectItemText"
-          },
-          {
             "type": "text",
-            "value": "Published"
+            "value": "Mastery"
           },
           {
             "type": "css",
-            "value": "div.flex"
+            "value": "div.relative"
+          },
+          {
+            "type": "component",
+            "value": "SelectItemContext"
           }
         ]
       }
@@ -469,15 +467,7 @@
         "strategies": [
           {
             "type": "component",
-            "value": "Button"
-          },
-          {
-            "type": "text",
-            "value": "Add Price"
-          },
-          {
-            "type": "css",
-            "value": "button.group/button"
+            "value": "SegmentViewNode"
           }
         ]
       }
@@ -488,43 +478,42 @@
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "SidebarProvider"
+            "type": "text",
+            "value": "L2 Seat Booking"
           },
           {
             "type": "css",
-            "value": "div.group/sidebar-wrapper"
+            "value": "div.flex"
+          },
+          {
+            "type": "component",
+            "value": "SelectItemText"
           }
         ]
       }
     },
     {
-      "action": "fill",
+      "action": "click",
       "id": "step-24",
       "locator": {
         "strategies": [
           {
-            "type": "placeholder",
-            "value": "0.00"
+            "type": "text",
+            "value": "Add Price"
+          },
+          {
+            "type": "css",
+            "value": "button.group/button"
           },
           {
             "type": "component",
-            "value": "FieldControl"
-          },
-          {
-            "type": "css",
-            "value": "#regularPrice-0"
-          },
-          {
-            "type": "css",
-            "value": "input.h-9"
+            "value": "Button"
           }
         ]
-      },
-      "value": "0.0"
+      }
     },
     {
-      "action": "fill",
+      "action": "click",
       "id": "step-25",
       "locator": {
         "strategies": [
@@ -533,20 +522,19 @@
             "value": "0.00"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#regularPrice-0"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
-      },
-      "value": "0"
+      }
     },
     {
       "action": "fill",
@@ -558,20 +546,20 @@
             "value": "0.00"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#regularPrice-0"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
-      "value": "0"
+      "value": "0.0"
     },
     {
       "action": "fill",
@@ -583,20 +571,20 @@
             "value": "0.00"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#regularPrice-0"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
-      "value": "1"
+      "value": "0"
     },
     {
       "action": "fill",
@@ -608,20 +596,20 @@
             "value": "0.00"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#regularPrice-0"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
-      "value": "10"
+      "value": "0"
     },
     {
       "action": "fill",
@@ -633,20 +621,20 @@
             "value": "0.00"
           },
           {
-            "type": "component",
-            "value": "FieldControl"
-          },
-          {
             "type": "css",
             "value": "#regularPrice-0"
           },
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
-      "value": "100"
+      "value": "1"
     },
     {
       "action": "fill",
@@ -658,8 +646,29 @@
             "value": "0.00"
           },
           {
+            "type": "css",
+            "value": "#regularPrice-0"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
             "type": "component",
             "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "10"
+    },
+    {
+      "action": "fill",
+      "id": "step-31",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "0.00"
           },
           {
             "type": "css",
@@ -668,6 +677,35 @@
           {
             "type": "css",
             "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "100"
+    },
+    {
+      "action": "fill",
+      "id": "step-32",
+      "locator": {
+        "strategies": [
+          {
+            "type": "placeholder",
+            "value": "0.00"
+          },
+          {
+            "type": "css",
+            "value": "#regularPrice-0"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
           }
         ]
       },
@@ -675,40 +713,16 @@
     },
     {
       "action": "click",
-      "id": "step-31",
-      "locator": {
-        "strategies": [
-          {
-            "type": "component",
-            "value": "CardHeader"
-          },
-          {
-            "type": "css",
-            "value": "div.flex"
-          }
-        ]
-      }
-    },
-    {
-      "action": "click",
-      "id": "step-32",
-      "locator": {
-        "strategies": [
-          {
-            "type": "component",
-            "value": "SegmentViewNode"
-          }
-        ]
-      }
-    },
-    {
-      "action": "click",
       "id": "step-33",
       "locator": {
         "strategies": [
           {
+            "type": "css",
+            "value": "div.space-y-4"
+          },
+          {
             "type": "component",
-            "value": "SegmentViewNode"
+            "value": "CardContent"
           }
         ]
       }
@@ -719,8 +733,12 @@
       "locator": {
         "strategies": [
           {
+            "type": "css",
+            "value": "div.group/card"
+          },
+          {
             "type": "component",
-            "value": "SegmentViewNode"
+            "value": "Card"
           }
         ]
       }
@@ -732,15 +750,7 @@
         "strategies": [
           {
             "type": "component",
-            "value": "SelectItemText"
-          },
-          {
-            "type": "text",
-            "value": "new-cp/new-cp"
-          },
-          {
-            "type": "css",
-            "value": "div.flex"
+            "value": "SegmentViewNode"
           }
         ]
       }
@@ -751,8 +761,16 @@
       "locator": {
         "strategies": [
           {
+            "type": "text",
+            "value": "new-cp/new-cp"
+          },
+          {
+            "type": "css",
+            "value": "div.flex"
+          },
+          {
             "type": "component",
-            "value": "SegmentViewNode"
+            "value": "SelectItemText"
           }
         ]
       }
@@ -788,15 +806,7 @@
         "strategies": [
           {
             "type": "component",
-            "value": "SelectItemContext"
-          },
-          {
-            "type": "text",
-            "value": "GSTDefault"
-          },
-          {
-            "type": "css",
-            "value": "div.relative"
+            "value": "SegmentViewNode"
           }
         ]
       }
@@ -807,8 +817,16 @@
       "locator": {
         "strategies": [
           {
+            "type": "text",
+            "value": "Default"
+          },
+          {
+            "type": "css",
+            "value": "span.group/badge"
+          },
+          {
             "type": "component",
-            "value": "SegmentViewNode"
+            "value": "Badge"
           }
         ]
       }
@@ -819,16 +837,16 @@
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "SelectItemText"
-          },
-          {
-            "type": "text",
-            "value": "Mastery"
+            "type": "css",
+            "value": "#base-ui-_r_3n_"
           },
           {
             "type": "css",
-            "value": "div.flex"
+            "value": "span.peer"
+          },
+          {
+            "type": "component",
+            "value": "SwitchRootContext"
           }
         ]
       }
@@ -839,48 +857,45 @@
       "locator": {
         "strategies": [
           {
+            "type": "css",
+            "value": "#enableDynamicPg"
+          },
+          {
             "type": "component",
-            "value": "SegmentViewNode"
+            "value": "SwitchRootContext"
           }
         ]
       }
     },
     {
-      "action": "click",
+      "action": "fill",
       "id": "step-43",
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "SelectItemText"
-          },
-          {
-            "type": "text",
-            "value": "L2 Seat Booking"
-          },
-          {
             "type": "css",
-            "value": "div.flex"
+            "value": "#enableDynamicPg"
+          },
+          {
+            "type": "component",
+            "value": "SwitchRootContext"
           }
         ]
-      }
+      },
+      "value": "on"
     },
     {
-      "action": "click",
+      "action": "check",
       "id": "step-44",
       "locator": {
         "strategies": [
           {
+            "type": "css",
+            "value": "#enableDynamicPg"
+          },
+          {
             "type": "component",
             "value": "SwitchRootContext"
-          },
-          {
-            "type": "css",
-            "value": "#base-ui-_r_39_"
-          },
-          {
-            "type": "css",
-            "value": "span.peer"
           }
         ]
       }
@@ -892,44 +907,39 @@
         "strategies": [
           {
             "type": "component",
-            "value": "SwitchRootContext"
-          },
-          {
-            "type": "css",
-            "value": "#enableDynamicPg"
+            "value": "SegmentViewNode"
           }
         ]
       }
     },
     {
-      "action": "fill",
+      "action": "click",
       "id": "step-46",
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "SwitchRootContext"
+            "type": "text",
+            "value": "Razorpay"
           },
           {
             "type": "css",
-            "value": "#enableDynamicPg"
+            "value": "div.relative"
+          },
+          {
+            "type": "component",
+            "value": "SelectItemContext"
           }
         ]
-      },
-      "value": "on"
+      }
     },
     {
-      "action": "check",
+      "action": "click",
       "id": "step-47",
       "locator": {
         "strategies": [
           {
             "type": "component",
-            "value": "SwitchRootContext"
-          },
-          {
-            "type": "css",
-            "value": "#enableDynamicPg"
+            "value": "SegmentViewNode"
           }
         ]
       }
@@ -952,16 +962,16 @@
       "locator": {
         "strategies": [
           {
-            "type": "component",
-            "value": "SelectItemText"
-          },
-          {
             "type": "text",
-            "value": "Razorpay"
+            "value": "Create Product"
           },
           {
             "type": "css",
-            "value": "div.flex"
+            "value": "button.group/button"
+          },
+          {
+            "type": "component",
+            "value": "Button"
           }
         ]
       }
@@ -969,26 +979,6 @@
     {
       "action": "click",
       "id": "step-50",
-      "locator": {
-        "strategies": [
-          {
-            "type": "component",
-            "value": "Button"
-          },
-          {
-            "type": "text",
-            "value": "Create Product"
-          },
-          {
-            "type": "css",
-            "value": "button.group/button"
-          }
-        ]
-      }
-    },
-    {
-      "action": "click",
-      "id": "step-51",
       "locator": {
         "strategies": [
           {

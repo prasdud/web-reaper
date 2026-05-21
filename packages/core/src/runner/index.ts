@@ -26,6 +26,9 @@ export interface RunnerOptions {
   /** Run in headed mode */
   headed?: boolean;
   
+  /** Load auth state from file (used if flow.authFile is not set) */
+  loadAuth?: string;
+  
   /** Callback for step completion */
   onStep?: (step: StepResult) => void;
   
@@ -73,11 +76,12 @@ export class Runner {
     };
 
     // Load auth state if specified
-    if (flow.authFile) {
+    const authFile = flow.authFile || this.options.loadAuth;
+    if (authFile) {
       try {
-        contextOptions.storageState = flow.authFile;
+        contextOptions.storageState = authFile;
       } catch (error) {
-        console.warn(`Could not load auth state from ${flow.authFile}`);
+        console.warn(`Could not load auth state from ${authFile}`);
       }
     }
 
