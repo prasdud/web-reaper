@@ -200,48 +200,44 @@ const RECORDER_PANEL_SCRIPT = `
     const panel = document.createElement('div');
     panel.id = '__web-reaper-panel';
     panel.innerHTML = \`
-      <div style="
+      <div id="__web-reaper-panel-inner" style="
         position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #1a1a2e;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(26, 26, 46, 0.92);
+        backdrop-filter: blur(8px);
         color: white;
-        padding: 16px;
-        border-radius: 12px;
+        padding: 10px 14px;
+        border-radius: 10px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: 14px;
+        font-size: 12px;
         z-index: 999999;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        min-width: 280px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        transition: all 0.15s ease;
+        max-width: 300px;
       ">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-          <div style="width: 12px; height: 12px; background: #ff4757; border-radius: 50%; animation: pulse 1.5s infinite;"></div>
-          <span style="font-weight: 600;">Web Reaper Recording</span>
+        <div id="__web-reaper-header" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+          <div style="width: 8px; height: 8px; background: #ff4757; border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0;"></div>
+          <span style="font-weight: 600; flex: 1; white-space: nowrap;">Recording</span>
+          <span id="__web-reaper-toggle" style="font-size: 14px; line-height: 1; color: #888;">&#9650;</span>
         </div>
-        <div id="__web-reaper-actions" style="color: #a0a0a0; font-size: 12px; max-height: 150px; overflow-y: auto;">
-          <div>Waiting for actions...</div>
-        </div>
-        <div style="margin-top: 12px; display: flex; gap: 8px;">
-          <button id="__web-reaper-assert" style="
-            flex: 1;
-            padding: 8px 12px;
-            background: #4834d4;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-          ">+ Add Assertion</button>
-          <button id="__web-reaper-stop" style="
-            flex: 1;
-            padding: 8px 12px;
-            background: #ff4757;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-          ">Stop Recording</button>
+        <div id="__web-reaper-body" style="margin-top: 8px;">
+          <div id="__web-reaper-actions" style="color: #a0a0a0; font-size: 11px; max-height: 100px; overflow-y: auto;">
+            <div>Waiting for actions...</div>
+          </div>
+          <div style="margin-top: 8px; display: flex; gap: 6px;">
+            <button id="__web-reaper-stop" style="
+              flex: 1;
+              padding: 6px 10px;
+              background: #ff4757;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 11px;
+              font-weight: 500;
+            ">Stop</button>
+          </div>
         </div>
       </div>
       <style>
@@ -254,28 +250,31 @@ const RECORDER_PANEL_SCRIPT = `
     document.body.appendChild(panel);
     window.__webReaperPanel = panel;
 
+    var collapsed = false;
+    document.getElementById('__web-reaper-header').addEventListener('click', function() {
+      collapsed = !collapsed;
+      var body = document.getElementById('__web-reaper-body');
+      var toggle = document.getElementById('__web-reaper-toggle');
+      body.style.display = collapsed ? 'none' : '';
+      toggle.innerHTML = collapsed ? '&#9660;' : '&#9650;';
+    });
+
     // Update actions display
     window.__webReaperUpdatePanel = function(actions) {
-      const container = document.getElementById('__web-reaper-actions');
+      var container = document.getElementById('__web-reaper-actions');
       if (!container) return;
 
-      const lastActions = actions.slice(-5);
-      container.innerHTML = lastActions.map(a =>
-        '<div style="padding: 4px 0; border-bottom: 1px solid #333;">' +
-        a.type + (a.selector ? ' on ' + a.selector.substring(0, 30) : '') +
-        '</div>'
-      ).join('') || '<div>Waiting for actions...</div>';
+      var lastActions = actions.slice(-5);
+      container.innerHTML = lastActions.map(function(a) {
+        return '<div style="padding: 2px 0; border-bottom: 1px solid #333;">' +
+          a.type + (a.selector ? ' on ' + a.selector.substring(0, 25) : '') +
+          '</div>';
+      }).join('') || '<div>Waiting for actions...</div>';
     };
 
     // Stop button
     document.getElementById('__web-reaper-stop').addEventListener('click', function() {
       window.__webReaperStopRequested = true;
-    });
-
-    // Assert button
-    document.getElementById('__web-reaper-assert').addEventListener('click', function() {
-      window.__webReaperAssertMode = true;
-      alert('Click on an element to add an assertion for it.');
     });
 
     console.log('[web-reaper] Panel loaded');
@@ -318,13 +317,15 @@ export class Recorder {
     // Launch browser
     this.browser = await chromium.launch({
       headless: false,
-      args: ['--disable-blink-features=AutomationControlled'],
+      args: ['--disable-blink-features=AutomationControlled', '--start-maximized'],
     });
 
     // Create context with optional auth state
-    const contextOptions: any = {
-      viewport: this.options.viewport || { width: 1280, height: 720 },
-    };
+    const contextOptions: any = {};
+
+    if (this.options.viewport) {
+      contextOptions.viewport = this.options.viewport;
+    }
 
     if (this.options.loadAuth) {
       contextOptions.storageState = this.options.loadAuth;

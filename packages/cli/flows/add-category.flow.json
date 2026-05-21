@@ -1,0 +1,954 @@
+{
+  "name": "add-category",
+  "description": "Recorded flow for add-category",
+  "baseUrl": "http://localhost:4000",
+  "steps": [
+    {
+      "action": "navigate",
+      "id": "step-1",
+      "url": "http://localhost:4000"
+    },
+    {
+      "action": "click",
+      "id": "step-2",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.group\\/sidebar-wrapper:nth-child(3) > main.relative:nth-child(2) > div.flex-1:nth-child(2) > div.space-y-6 > div:nth-child(2) > div.grid:nth-child(2) > a:nth-child(2) > div.group\\/card > div.group\\/card-header:nth-child(1)"
+          },
+          {
+            "type": "text",
+            "value": "abdul corpsssabdul corp description modifieds"
+          },
+          {
+            "type": "css",
+            "value": "div.group/card-header"
+          },
+          {
+            "type": "component",
+            "value": "LinkComponent"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-3",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#base-ui-_r_b_ > span:nth-child(2)"
+          },
+          {
+            "type": "text",
+            "value": "Categories"
+          },
+          {
+            "type": "component",
+            "value": "TooltipTrigger"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-4",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#base-ui-_r_b_ > span:nth-child(2)"
+          },
+          {
+            "type": "text",
+            "value": "Categories"
+          },
+          {
+            "type": "component",
+            "value": "TooltipTrigger"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-5",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.group\\/sidebar-wrapper:nth-child(3) > main.relative:nth-child(2) > div.flex-1:nth-child(2) > div.space-y-6:nth-child(1) > div.flex:nth-child(1) > a:nth-child(2) > button.group\\/button"
+          },
+          {
+            "type": "text",
+            "value": "Add Category"
+          },
+          {
+            "type": "css",
+            "value": "button.group/button"
+          },
+          {
+            "type": "component",
+            "value": "Button"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-6",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      }
+    },
+    {
+      "action": "fill",
+      "id": "step-7",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "r"
+    },
+    {
+      "action": "fill",
+      "id": "step-8",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "re"
+    },
+    {
+      "action": "fill",
+      "id": "step-9",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "rea"
+    },
+    {
+      "action": "fill",
+      "id": "step-10",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "reao"
+    },
+    {
+      "action": "fill",
+      "id": "step-11",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "rea"
+    },
+    {
+      "action": "fill",
+      "id": "step-12",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "reap"
+    },
+    {
+      "action": "fill",
+      "id": "step-13",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "reape"
+    },
+    {
+      "action": "fill",
+      "id": "step-14",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "reaper"
+    },
+    {
+      "action": "fill",
+      "id": "step-15",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "reaper-"
+    },
+    {
+      "action": "fill",
+      "id": "step-16",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "reaper-t"
+    },
+    {
+      "action": "fill",
+      "id": "step-17",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "reaper-te"
+    },
+    {
+      "action": "fill",
+      "id": "step-18",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "reaper-tes"
+    },
+    {
+      "action": "fill",
+      "id": "step-19",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "placeholder",
+            "value": "e.g., Electronics, Clothing"
+          },
+          {
+            "type": "css",
+            "value": "#name"
+          },
+          {
+            "type": "css",
+            "value": "input.h-9"
+          },
+          {
+            "type": "component",
+            "value": "FieldControl"
+          }
+        ]
+      },
+      "value": "reaper-test"
+    },
+    {
+      "action": "click",
+      "id": "step-20",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.group\\/sidebar-wrapper:nth-child(3) > main.relative:nth-child(2) > div.flex-1:nth-child(2) > div.flex-1:nth-child(1) > div.group\\/card:nth-child(2) > div.px-6:nth-child(2) > form.space-y-4 > div.flex:nth-child(4)"
+          },
+          {
+            "type": "text",
+            "value": "CancelCreate Category"
+          },
+          {
+            "type": "css",
+            "value": "div.flex"
+          },
+          {
+            "type": "component",
+            "value": "CardContent"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-21",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.group\\/sidebar-wrapper:nth-child(3) > main.relative:nth-child(2) > div.flex-1:nth-child(2) > div.flex-1:nth-child(1) > div.group\\/card:nth-child(2)"
+          },
+          {
+            "type": "css",
+            "value": "div.group/card"
+          },
+          {
+            "type": "component",
+            "value": "Card"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-22",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-panel > div:nth-child(1)"
+          },
+          {
+            "type": "css",
+            "value": "div"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-23",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-panel > div:nth-child(1)"
+          },
+          {
+            "type": "css",
+            "value": "div"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-24",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.group\\/sidebar-wrapper:nth-child(3) > main.relative:nth-child(2) > div.flex-1:nth-child(2)"
+          },
+          {
+            "type": "css",
+            "value": "div.flex-1"
+          },
+          {
+            "type": "component",
+            "value": "SidebarInset"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-25",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-26",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "html.light"
+          },
+          {
+            "type": "css",
+            "value": "html.light"
+          },
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-27",
+      "locator": {
+        "strategies": [
+          {
+            "type": "component",
+            "value": "SegmentViewNode"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-28",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-panel > div:nth-child(1)"
+          },
+          {
+            "type": "css",
+            "value": "div"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-29",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.group\\/sidebar-wrapper:nth-child(3) > main.relative:nth-child(2) > div.flex-1:nth-child(2) > div.flex-1:nth-child(1) > div.group\\/card:nth-child(2)"
+          },
+          {
+            "type": "css",
+            "value": "div.group/card"
+          },
+          {
+            "type": "component",
+            "value": "Card"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-30",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#base-ui-_r_24_"
+          },
+          {
+            "type": "text",
+            "value": "No parent (top-level)"
+          },
+          {
+            "type": "css",
+            "value": "#base-ui-_r_24_"
+          },
+          {
+            "type": "css",
+            "value": "button.group/button"
+          },
+          {
+            "type": "component",
+            "value": "Button"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-31",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#radix-_r_2e_"
+          },
+          {
+            "type": "text",
+            "value": "food"
+          },
+          {
+            "type": "css",
+            "value": "#radix-_r_2e_"
+          },
+          {
+            "type": "css",
+            "value": "div.group/command-item"
+          },
+          {
+            "type": "component",
+            "value": "Primitive.div"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-32",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.group\\/sidebar-wrapper:nth-child(3) > main.relative:nth-child(2) > div.flex-1:nth-child(2)"
+          },
+          {
+            "type": "css",
+            "value": "div.flex-1"
+          },
+          {
+            "type": "component",
+            "value": "SidebarInset"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-33",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.group\\/sidebar-wrapper:nth-child(3) > main.relative:nth-child(2) > div.flex-1:nth-child(2)"
+          },
+          {
+            "type": "css",
+            "value": "div.flex-1"
+          },
+          {
+            "type": "component",
+            "value": "SidebarInset"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-34",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#base-ui-_r_24_"
+          },
+          {
+            "type": "text",
+            "value": "food"
+          },
+          {
+            "type": "css",
+            "value": "#base-ui-_r_24_"
+          },
+          {
+            "type": "css",
+            "value": "button.group/button"
+          },
+          {
+            "type": "component",
+            "value": "Button"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-35",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "div.group\\/sidebar-wrapper:nth-child(3) > main.relative:nth-child(2) > div.flex-1:nth-child(2) > div.flex-1:nth-child(1) > div.group\\/card:nth-child(2) > div.px-6:nth-child(2) > form.space-y-4"
+          },
+          {
+            "type": "css",
+            "value": "form.space-y-4"
+          },
+          {
+            "type": "component",
+            "value": "CardContent"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-36",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-panel > div:nth-child(1)"
+          },
+          {
+            "type": "css",
+            "value": "div"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-37",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-actions > div:nth-child(2)"
+          },
+          {
+            "type": "text",
+            "value": "click on div.group\\/sidebar-wrapper:nth"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-38",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-panel > div:nth-child(1)"
+          },
+          {
+            "type": "css",
+            "value": "div"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-39",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-assert"
+          },
+          {
+            "type": "text",
+            "value": "+ Add Assertion"
+          },
+          {
+            "type": "css",
+            "value": "#__web-reaper-assert"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-40",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-assert"
+          },
+          {
+            "type": "text",
+            "value": "+ Add Assertion"
+          },
+          {
+            "type": "css",
+            "value": "#__web-reaper-assert"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-41",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-assert"
+          },
+          {
+            "type": "text",
+            "value": "+ Add Assertion"
+          },
+          {
+            "type": "css",
+            "value": "#__web-reaper-assert"
+          }
+        ]
+      }
+    },
+    {
+      "action": "click",
+      "id": "step-42",
+      "locator": {
+        "strategies": [
+          {
+            "type": "css",
+            "value": "#__web-reaper-stop"
+          },
+          {
+            "type": "text",
+            "value": "Stop Recording"
+          },
+          {
+            "type": "css",
+            "value": "#__web-reaper-stop"
+          }
+        ]
+      }
+    }
+  ],
+  "assertions": []
+}
