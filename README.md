@@ -58,8 +58,11 @@ pnpm install
 # Build all packages
 pnpm build
 
+# Install Playwright browsers (required for recording/running)
+pnpm --filter @web-reaper/core exec playwright install chromium
+
 # Verify installation
-node packages/cli/dist/index.js --help
+pnpm reaper --help
 ```
 
 ### Requirements
@@ -67,14 +70,18 @@ node packages/cli/dist/index.js --help
 - Node.js >= 18.0.0
 - pnpm (recommended) or npm
 
+Note: All `pnpm reaper` commands must be run from the repository root directory.
+
 ---
 
 ## Quick Start
 
-### 1. Initialize in your project
+All commands must be run from the `web-reaper` repository root.
+
+### 1. Initialize
 
 ```bash
-npx web-reaper init
+pnpm reaper init
 ```
 
 This creates:
@@ -90,7 +97,7 @@ your-project/
 ### 2. Record a test flow
 
 ```bash
-npx web-reaper record -u http://localhost:3000 -f login
+pnpm reaper record -u http://localhost:3000 -f login
 ```
 
 A browser window opens. Perform your test actions:
@@ -103,26 +110,26 @@ A browser window opens. Perform your test actions:
 
 ```bash
 # Run a single flow
-npx web-reaper run -f login
+pnpm reaper run -f login
 
 # Run all flows
-npx web-reaper run --all
+pnpm reaper run --all
 
 # Run in headed mode (watch the browser)
-npx web-reaper run -f login --headed
+pnpm reaper run -f login --headed
 
 # Override variables
-npx web-reaper run -f login --vars email=other@test.com,password=newpass
+pnpm reaper run -f login --vars email=other@test.com,password=newpass
 ```
 
 ### 4. Generate reports
 
 ```bash
 # HTML report (default)
-npx web-reaper report
+pnpm reaper report
 
 # JSON report
-npx web-reaper report -f json
+pnpm reaper report -f json
 ```
 
 ---
@@ -130,7 +137,7 @@ npx web-reaper report -f json
 ## CLI Reference
 
 ```bash
-web-reaper [command] [options]
+pnpm reaper [command] [options]
 ```
 
 ### Commands
@@ -145,7 +152,7 @@ web-reaper [command] [options]
 ### Record Options
 
 ```bash
-npx web-reaper record [options]
+pnpm reaper record [options]
 
   -u, --url <url>         Base URL to start recording (required)
   -f, --flow <name>       Name of the flow to record (required)
@@ -157,7 +164,7 @@ npx web-reaper record [options]
 ### Run Options
 
 ```bash
-npx web-reaper run [options]
+pnpm reaper run [options]
 
   -f, --flow <name>       Name of flow to run
   -a, --all               Run all flows
@@ -171,7 +178,7 @@ npx web-reaper run [options]
 ### Report Options
 
 ```bash
-npx web-reaper report [options]
+pnpm reaper report [options]
 
   -f, --format <format>   Report format: html, json (default: "html")
   -o, --output <file>     Output file path
@@ -443,10 +450,10 @@ Locators support multiple strategies tried in order. This provides resilient ele
 
 ```bash
 # Record login flow and save auth state
-npx web-reaper record -u http://localhost:3000 -f login --save-auth auth/logged-in.json
+pnpm reaper record -u http://localhost:3000 -f login --save-auth auth/logged-in.json
 
 # Record authenticated flow using saved state
-npx web-reaper record -u http://localhost:3000 -f checkout --load-auth auth/logged-in.json
+pnpm reaper record -u http://localhost:3000 -f checkout --load-auth auth/logged-in.json
 ```
 
 ### In Flow Files
@@ -558,7 +565,7 @@ Beautiful dark-themed HTML report with:
 - Console log capture
 
 ```bash
-npx web-reaper report
+pnpm reaper report
 # Opens: reports/report.html
 ```
 
@@ -567,7 +574,7 @@ npx web-reaper report
 Machine-readable JSON for CI/CD integration:
 
 ```bash
-npx web-reaper report -f json
+pnpm reaper report -f json
 ```
 
 ```json
